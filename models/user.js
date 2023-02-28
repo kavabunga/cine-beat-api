@@ -22,7 +22,7 @@ const userSchema = new mongoose.Scema({
     required: true,
     minLength: 2,
     maxLength: 30,
-
+    default: 'Чарли Чаплин',
   },
 });
 
