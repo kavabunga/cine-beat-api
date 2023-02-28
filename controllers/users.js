@@ -1,8 +1,9 @@
 const bycrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const { devSecret, devDomain } = require('../util/constants.ts');
 
-const { DOMAIN = 'localhost', JWT_SECRET = 'krabsburger' } = process.env;
+const { DOMAIN = devDomain, JWT_SECRET = devSecret } = process.env;
 
 module.exports.signUp = async function (req, res, next) {
   try {
