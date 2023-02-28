@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 const router = require('./routes');
 
@@ -14,6 +15,7 @@ const app = express();
 app.use(express.json());
 
 // cookie parser
+app.use(cookieParser());
 
 // Security:
 // Helmet
