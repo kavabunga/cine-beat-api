@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { devSecret, devDomain } = require('../util/constants.ts');
 
-const { DOMAIN = devDomain, JWT_SECRET = devSecret } = process.env;
+const { NODE_ENV, DOMAIN = 'localhost', JWT_SECRET } = process.env;
 
 module.exports.signUp = async function (req, res, next) {
   try {
@@ -22,10 +22,10 @@ module.exports.signIn = async function (req, res, next) {
     const {
       email, name, _id,
     } = await User.findUserByCredentials(req.body.email, req.body.password);
-    const token = jwt.sign({ _id }, JWT_SECRET, { expiresIn: '7d' });
+    const token = jwt.sign({ _id }, NODE_ENV === 'production' ? JWT_SECRET : devSecret, { expiresIn: '7d' });
     return res
       .cookie('jwt', token, {
-        domain: DOMAIN,
+        domain: NODE_ENV === 'production' ? DOMAIN : devDomain,
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
         sameSite: 'none',

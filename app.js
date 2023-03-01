@@ -1,11 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-const devMongoURL = require('./util/constants');
+const devMongoURL = require('./util/constants.ts');
 
 const router = require('./routes');
 
-const { PORT = 3000, MONGO_URL = devMongoURL } = process.env;
+const { NODE_ENV, PORT = 3000, MONGO_URL } = process.env;
 
 const app = express();
 
@@ -29,8 +30,11 @@ app.use(router);
 
 // Process errors
 
-mongoose.connect(MONGO_URL);
+mongoose.connect(NODE_ENV === 'production' ? MONGO_URL : devMongoURL);
 
-app.listen(PORT, () => {
-  console.log(`App is here on port: ${PORT}`);
-});
+app.listen(
+  NODE_ENV === 'production' ? PORT : 3000,
+  () => {
+    console.log(`App is here on port: ${PORT}`);
+  },
+);
