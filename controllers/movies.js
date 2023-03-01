@@ -32,7 +32,7 @@ module.exports.deleteMovieById = async function (req, res, next) {
     if (movie.owner._id.toString() !== req.user._id) {
       return next('ERROR TO BE DESCRIBED — NO ACCESS');
     }
-    await movie.remove();
+    await movie.deleteOne();
     return res.send({ data: movie });
   } catch (err) {
     return next(err);

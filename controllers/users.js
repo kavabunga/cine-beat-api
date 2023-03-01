@@ -28,8 +28,8 @@ module.exports.signIn = async function (req, res, next) {
         domain: NODE_ENV === 'production' ? DOMAIN : devDomain,
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
-        sameSite: 'none',
-        secure: true,
+        sameSite: NODE_ENV === 'production' ? 'none' : '',
+        secure: NODE_ENV === 'production',
       })
       .send({ data: { email, name, _id } });
   } catch (err) {
@@ -41,10 +41,10 @@ module.exports.signOut = async function (req, res, next) {
   try {
     return res
       .clearCookie('jwt', {
-        domain: DOMAIN,
+        domain: NODE_ENV === 'production' ? DOMAIN : devDomain,
         httpOnly: true,
-        sameSite: 'none',
-        secure: true,
+        sameSite: NODE_ENV === 'production' ? 'none' : '',
+        secure: NODE_ENV === 'production',
         path: '/',
       })
       .send('Выход выполнен');
@@ -67,9 +67,10 @@ module.exports.getUser = async function (req, res, next) {
 
 module.exports.updateUser = async function (req, res, next) {
   try {
+    const { name, email } = req.body;
     const user = await User.findByIdAndUpdate(
       req.user._id,
-      req.body,
+      { name, email },
       {
         new: true,
         runValidators: true,

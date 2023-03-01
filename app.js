@@ -32,9 +32,4 @@ app.use(router);
 
 mongoose.connect(NODE_ENV === 'production' ? MONGO_URL : devMongoURL);
 
-app.listen(
-  NODE_ENV === 'production' ? PORT : 3000,
-  () => {
-    console.log(`App is here on port: ${PORT}`);
-  },
-);
+app.listen(NODE_ENV === 'production' ? PORT : 3000);
