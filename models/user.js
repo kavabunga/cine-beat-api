@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bycrypt = require('bcryptjs');
 const { isEmail } = require('validator');
 
-const userSchema = new mongoose.Scema({
+const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
