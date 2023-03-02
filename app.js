@@ -6,8 +6,7 @@ const { xss } = require('express-xss-sanitizer');
 const helmet = require('helmet');
 const cors = require('cors');
 const rateLimiter = require('./middlewares/requestRateLimiter');
-const { devMongoURL } = require('./util/constants.ts');
-const { corsOptions } = require('./util/config.ts');
+const { devMongoURL, corsOptions } = require('./util/config.ts');
 
 const router = require('./routes');
 const errorHandler = require('./middlewares/errorHandler');

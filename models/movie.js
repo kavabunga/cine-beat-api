@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { isURL } = require('validator');
+const { responseMessages } = require('../util/constants.ts');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -27,7 +28,7 @@ const movieSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: isURL,
-      message: 'Передан недействительный URL',
+      message: responseMessages.errorSchemaValidatorUrl,
     },
   },
   trailerLink: {
@@ -35,7 +36,7 @@ const movieSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: isURL,
-      message: 'Передан недействительный URL',
+      message: responseMessages.errorSchemaValidatorUrl,
     },
   },
   thumbnail: {
@@ -43,7 +44,7 @@ const movieSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: isURL,
-      message: 'Передан недействительный URL',
+      message: responseMessages.errorSchemaValidatorUrl,
     },
   },
   owner: {

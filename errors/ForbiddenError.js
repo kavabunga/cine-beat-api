@@ -1,10 +1,10 @@
 const HttpError = require('./HttpError');
-const { errorCodes } = require('../util/constants.ts');
+const { errors } = require('../util/constants.ts');
 
 module.exports = class ForbiddenError extends HttpError {
   constructor(message) {
     super(message);
-    this.name = 'ForbiddenError';
-    this.statusCode = errorCodes.FORBIDDEN;
+    this.name = errors.FORBIDDEN.name;
+    this.statusCode = errors.FORBIDDEN.code;
   }
 };

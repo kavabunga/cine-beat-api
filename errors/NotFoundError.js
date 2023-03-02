@@ -1,10 +1,10 @@
 const HttpError = require('./HttpError');
-const { errorCodes } = require('../util/constants.ts');
+const { errors } = require('../util/constants.ts');
 
 module.exports = class NotFoundError extends HttpError {
   constructor(message) {
     super(message);
-    this.name = 'NotFoundError';
-    this.statusCode = errorCodes.NOT_FOUND;
+    this.name = errors.NOT_FOUND.name;
+    this.statusCode = errors.NOT_FOUND.code;
   }
 };

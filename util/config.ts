@@ -1,4 +1,7 @@
 const config = {
+  devSecret: 'krabsburger',
+  devMongoURL: 'mongodb://localhost:27017/bitfilmsdb',
+  devDomain: '.localhost',
   rateLimiterOptions: {
     windowMs: 60 * 1000, // 1 minute
 	  max: 100,
