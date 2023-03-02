@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const { devMongoURL } = require('./util/constants.ts');
 
 const router = require('./routes');
+const errorHandler = require('./middlewares/errorHandler');
 
 const { NODE_ENV, PORT = 3000, MONGO_URL } = process.env;
 
@@ -29,6 +30,7 @@ app.use(router);
 // errors log
 
 // Process errors
+app.use(errorHandler);
 
 mongoose.connect(NODE_ENV === 'production' ? MONGO_URL : devMongoURL);
 

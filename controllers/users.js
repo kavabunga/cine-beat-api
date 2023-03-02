@@ -2,6 +2,7 @@ const bycrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { devSecret, devDomain } = require('../util/constants.ts');
+const NotFoundError = require('../errors/NotFoundError');
 
 const { NODE_ENV, DOMAIN = 'localhost', JWT_SECRET } = process.env;
 
@@ -47,7 +48,7 @@ module.exports.signOut = async function (req, res, next) {
         secure: NODE_ENV === 'production',
         path: '/',
       })
-      .send('Выход выполнен');
+      .send({ message: 'Выход выполнен' });
   } catch (err) {
     return next(err);
   }
@@ -57,7 +58,7 @@ module.exports.getUser = async function (req, res, next) {
   try {
     const user = await User.findById(req.user._id);
     if (!user) {
-      return next('ERROR TO BE DESCRIBED — NOT FOUND');
+      return next(new NotFoundError('Запрошенный пользователь не найден'));
     }
     return res.send({ data: user });
   } catch (err) {
@@ -77,7 +78,7 @@ module.exports.updateUser = async function (req, res, next) {
       },
     );
     if (!user) {
-      return next('ERROR TO BE DESCRIBED — NOT FOUND');
+      return next(new NotFoundError('Запрошенный пользователь не найден'));
     }
     return res.send({ data: user });
   } catch (err) {

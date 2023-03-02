@@ -1,11 +1,13 @@
 const Movie = require('../models/movie');
+const NotFoundError = require('../errors/NotFoundError');
+const ForbiddenError = require('../errors/ForbiddenError');
 
 module.exports.getMovies = async function (req, res, next) {
   try {
     const movies = await Movie.find({ owner: req.user._id })
       .populate('owner');
     if (!movies) {
-      return next('ERROR TO BE DESCRIBED — NOT FOUND');
+      return next(new NotFoundError('Запрошенные фильмы не найдены'));
     }
     return res.send({ data: movies });
   } catch (err) {
@@ -27,10 +29,10 @@ module.exports.deleteMovieById = async function (req, res, next) {
   try {
     const movie = await Movie.findById(req.params.id).populate('owner');
     if (!movie) {
-      return next('ERROR TO BE DESCRIBED — NOT FOUND');
+      return next(new NotFoundError(`Запрошенный фильм с _id: ${req.params.id} не найден`));
     }
     if (movie.owner._id.toString() !== req.user._id) {
-      return next('ERROR TO BE DESCRIBED — NO ACCESS');
+      return next(new ForbiddenError('Нет прав на удаление этого фильма'));
     }
     await movie.deleteOne();
     return res.send({ data: movie });
