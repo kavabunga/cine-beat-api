@@ -4,6 +4,7 @@ const movieRouter = require('./movies');
 const { signUp, signIn, signOut } = require('../controllers/users');
 const auth = require('../middlewares/auth');
 const { validateCredentials } = require('../middlewares/requestValidator');
+const wrongRouteHandler = require('../middlewares/wrongRouteHandler');
 
 // Auth routes:
 router.post('/signup', validateCredentials, signUp);
@@ -18,5 +19,6 @@ router.use('/users', userRouter);
 router.use('/movies', movieRouter);
 
 // Wrongroute middleware
+router.use('*', wrongRouteHandler);
 
 module.exports = router;

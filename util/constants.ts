@@ -34,6 +34,7 @@ const constants = {
     errorNotFoundMovieById: 'Запрошенный фильм не найден',
     errorForbiddenDeleteMovie: 'Нет прав на удаление фильма',
     errorNotFoundUser: 'Запрошенный пользователь не найден',
+    errorNotFoundRoute: 'Запрошенный адрес не найден',
     errorUnauthorizedBadCredentials: 'Переданы неправильные почта и/или пароль',
     errorUnauthorizedNoToken: 'Не передан токен авторизации',
     errorUnauthorizedBadToken: 'Передан неправильный токен авторизации',
