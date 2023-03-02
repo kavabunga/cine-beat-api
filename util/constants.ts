@@ -28,6 +28,7 @@ const constants = {
   responseMessages: {
     errorDefault: 'Ошибка по умолчанию',
     errorUserExists: 'Пользователь с таким email уже существует',
+    errorJoiValidation: 'Переданы некорректные данные',
     errorMongooseValidation: 'Переданы некорректные данные',
     errorMongooseCast: 'Переданы некорректные данные',
     errorNotFoundMovies: 'Запрошенные фильмы не найдены',
@@ -41,8 +42,6 @@ const constants = {
     errorSchemaValidatorEmail: 'Передан некорректный email пользователя',
     errorSchemaValidatorUrl: 'Передан недействительный URL',
     successLogout: 'Выход выполнен',
-
-
   },
 }
 
