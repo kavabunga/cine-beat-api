@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { validateMovie, validateId } = require('../middlewares/requestValidation');
+const { validateMovie, validateId } = require('../middlewares/requestValidator');
 
 const { getMovies, postMovie, deleteMovieById } = require('../controllers/movies');
 

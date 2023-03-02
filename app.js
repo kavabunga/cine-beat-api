@@ -2,32 +2,39 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const { xss } = require('express-xss-sanitizer');
+const helmet = require('helmet');
+const cors = require('cors');
+const rateLimiter = require('./middlewares/requestRateLimiter');
 const { devMongoURL } = require('./util/constants.ts');
+const { corsOptions } = require('./util/config.ts');
 
 const router = require('./routes');
 const errorHandler = require('./middlewares/errorHandler');
+const { requestLogger, errorLogger } = require('./middlewares/requestLogger');
 
 const { NODE_ENV, PORT = 3000, MONGO_URL } = process.env;
 
 const app = express();
 
-// rate-limiter
-
-// requests log
+app.use(rateLimiter);
+app.use(requestLogger);
 
 app.use(express.json());
-
-// cookie parser
 app.use(cookieParser());
 
-// Security:
-// Helmet
-// CORS
-// XSS
+// Cors for preflight
+app.options('*', cors(corsOptions));
 
+// Security:
+app.use(cors(corsOptions));
+app.use(xss());
+app.use(helmet());
+
+// Main router
 app.use(router);
 
-// errors log
+app.use(errorLogger);
 
 // Process errors
 app.use(errorHandler);
