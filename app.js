@@ -16,9 +16,13 @@ const { NODE_ENV, PORT = 3000, MONGO_URL } = process.env;
 
 const app = express();
 
-app.use(rateLimiter);
+// Log requests
 app.use(requestLogger);
 
+// Limit requests
+app.use(rateLimiter);
+
+// Parse body and cookies
 app.use(express.json());
 app.use(cookieParser());
 
@@ -33,6 +37,7 @@ app.use(helmet());
 // Main router
 app.use(router);
 
+// Log errors
 app.use(errorLogger);
 
 // Process errors
