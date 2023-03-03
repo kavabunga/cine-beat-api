@@ -3,11 +3,11 @@ const userRouter = require('./users');
 const movieRouter = require('./movies');
 const { signUp, signIn, signOut } = require('../controllers/users');
 const auth = require('../middlewares/auth');
-const { validateCredentials } = require('../middlewares/requestValidator');
+const { validateCredentials, validateNewUser } = require('../middlewares/requestValidator');
 const wrongRouteHandler = require('../middlewares/wrongRouteHandler');
 
 // Auth routes:
-router.post('/signup', validateCredentials, signUp);
+router.post('/signup', validateNewUser, signUp);
 router.post('/signin', validateCredentials, signIn);
 router.post('/signout', signOut);
 
