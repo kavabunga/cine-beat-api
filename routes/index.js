@@ -9,12 +9,12 @@ const wrongRouteHandler = require('../middlewares/wrongRouteHandler');
 // Auth routes:
 router.post('/signup', validateNewUser, signUp);
 router.post('/signin', validateCredentials, signIn);
-router.post('/signout', signOut);
 
 // Protection middleware:
 router.use(auth);
 
 // General routers
+router.post('/signout', signOut);
 router.use('/users', userRouter);
 router.use('/movies', movieRouter);
 
