@@ -1,12 +1,12 @@
-# :popcorn: Movie Explorer (back-end) • ![Status in progress](https://badgen.net/badge/status/in%20progress/yellow)
+# :popcorn: Movie Explorer (back-end) • ![Status finished](https://badgen.net/badge/status/finished/green)
 
 Back-end for the project **Movie Explorer** — web-application for keeping a personal movie collection.
 
 ## Technology
 
-- [**Node.js**](https://nodejs.org/en/ "Node.js")
-- [**Express.js**](https://expressjs.com "Express.js")
-- [**MongoDB**](https://www.mongodb.com "MongoDB") + [**Mongoose.js**](https://mongoosejs.com "Mongoose")
+- [**Node.js**](https://nodejs.org/en/ 'Node.js')
+- [**Express.js**](https://expressjs.com 'Express.js')
+- [**MongoDB**](https://www.mongodb.com 'MongoDB') + [**Mongoose.js**](https://mongoosejs.com 'Mongoose')
 
 ## Features
 
@@ -45,6 +45,4 @@ Back-end for the project **Movie Explorer** — web-application for keeping a pe
 
 ## Address
 
-[https://api.quentin.nomoredomains.work](https://api.quentin.nomoredomains.work)
-
-IP: 62.84.120.123
+Currently not deployed
