@@ -21,10 +21,15 @@ module.exports.signUp = async function (req, res, next) {
 
 module.exports.signIn = async function (req, res, next) {
   try {
-    const {
-      email, name, _id,
-    } = await User.findUserByCredentials(req.body.email, req.body.password);
-    const token = jwt.sign({ _id }, NODE_ENV === 'production' ? JWT_SECRET : devSecret, { expiresIn: '7d' });
+    const { email, name, _id } = await User.findUserByCredentials(
+      req.body.email,
+      req.body.password,
+    );
+    const token = jwt.sign(
+      { _id },
+      NODE_ENV === 'production' ? JWT_SECRET : devSecret,
+      { expiresIn: '7d' },
+    );
     return res
       .cookie('jwt', token, {
         domain: NODE_ENV === 'production' ? DOMAIN : devDomain,

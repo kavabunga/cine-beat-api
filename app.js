@@ -12,7 +12,7 @@ const router = require('./routes');
 const errorHandler = require('./middlewares/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/requestLogger');
 
-const { NODE_ENV, PORT = 3000, MONGO_URL } = process.env;
+const { NODE_ENV, PORT = 3002, MONGO_URL } = process.env;
 
 const app = express();
 
@@ -45,4 +45,4 @@ app.use(errorHandler);
 
 mongoose.connect(NODE_ENV === 'production' ? MONGO_URL : devMongoURL);
 
-app.listen(NODE_ENV === 'production' ? PORT : 3000);
+app.listen(NODE_ENV === 'production' ? PORT : 3002);

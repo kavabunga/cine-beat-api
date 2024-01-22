@@ -4,7 +4,7 @@ const config = {
   devDomain: '.localhost',
   rateLimiterOptions: {
     windowMs: 60 * 1000, // 1 minute
-	  max: 100,
+    max: 100,
   },
   corsOptions: {
     origin: true, // Reflect origin
@@ -15,6 +15,6 @@ const config = {
     requestLogFilename: 'request.log',
     errorLogFilename: 'error.log',
   },
-}
+};
 
 module.exports = config;

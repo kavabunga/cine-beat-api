@@ -2,7 +2,7 @@ const constants = {
   errors: {
     BAD_REQUEST: {
       code: 400,
-      name: 'BadRequest'
+      name: 'BadRequest',
     },
     UNAUTHORIZED: {
       code: 401,
@@ -10,7 +10,7 @@ const constants = {
     },
     FORBIDDEN: {
       code: 403,
-      name: 'Forbidden'
+      name: 'Forbidden',
     },
     NOT_FOUND: {
       code: 404,
@@ -22,27 +22,27 @@ const constants = {
     },
     DEFAULT: {
       code: 500,
-      name: 'DefaultError'
+      name: 'DefaultError',
     },
   },
   responseMessages: {
-    errorDefault: 'Ошибка по умолчанию',
-    errorUserExists: 'Пользователь с таким email уже существует',
-    errorJoiValidation: 'Переданы некорректные данные',
-    errorMongooseValidation: 'Переданы некорректные данные',
-    errorMongooseCast: 'Переданы некорректные данные',
-    errorNotFoundMovies: 'Запрошенные фильмы не найдены',
-    errorNotFoundMovieById: 'Запрошенный фильм не найден',
-    errorForbiddenDeleteMovie: 'Нет прав на удаление фильма',
-    errorNotFoundUser: 'Запрошенный пользователь не найден',
-    errorNotFoundRoute: 'Запрошенный адрес не найден',
-    errorUnauthorizedBadCredentials: 'Переданы неправильные почта и/или пароль',
-    errorUnauthorizedNoToken: 'Не передан токен авторизации',
-    errorUnauthorizedBadToken: 'Передан неправильный токен авторизации',
-    errorSchemaValidatorEmail: 'Передан некорректный email пользователя',
-    errorSchemaValidatorUrl: 'Передан недействительный URL',
-    successLogout: 'Выход выполнен',
+    errorDefault: 'Default error',
+    errorUserExists: 'A user with this email already exists',
+    errorJoiValidation: 'Invalid data passed',
+    errorMongooseValidation: 'Invalid data passed',
+    errorMongooseCast: 'Invalid data passed',
+    errorNotFoundMovies: 'Requested movies not found',
+    errorNotFoundMovieById: 'Requested movie not found',
+    errorForbiddenDeleteMovie: 'No permission to delete the movie',
+    errorNotFoundUser: 'Requested user not found',
+    errorNotFoundRoute: 'Requested route not found',
+    errorUnauthorizedBadCredentials: 'Incorrect email and/or password provided',
+    errorUnauthorizedNoToken: 'Authorization token not provided',
+    errorUnauthorizedBadToken: 'Invalid authorization token provided',
+    errorSchemaValidatorEmail: 'Invalid user email provided',
+    errorSchemaValidatorUrl: 'Invalid URL provided',
+    successLogout: 'Logout successful',
   },
-}
+};
 
 module.exports = constants;
