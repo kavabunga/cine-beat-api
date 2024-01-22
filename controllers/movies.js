@@ -5,8 +5,7 @@ const { responseMessages } = require('../util/constants.ts');
 
 module.exports.getMovies = async function (req, res, next) {
   try {
-    const movies = await Movie.find({ owner: req.user._id })
-      .populate('owner');
+    const movies = await Movie.find({ owner: req.user._id }).populate('owner');
     if (!movies) {
       return next(new NotFoundError(responseMessages.errorNotFoundMovies));
     }
@@ -33,7 +32,9 @@ module.exports.deleteMovieById = async function (req, res, next) {
       return next(new NotFoundError(responseMessages.errorNotFoundMovieById));
     }
     if (movie.owner._id.toString() !== req.user._id) {
-      return next(new ForbiddenError(responseMessages.errorForbiddenDeleteMovie));
+      return next(
+        new ForbiddenError(responseMessages.errorForbiddenDeleteMovie),
+      );
     }
     await movie.deleteOne();
     return res.send({ data: movie });

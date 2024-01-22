@@ -15,9 +15,7 @@ module.exports = (err, req, res, next) => {
       .send({ message: responseMessages.errorJoiValidation });
   }
   if (err instanceof HttpError) {
-    return res
-      .status(err.statusCode)
-      .send({ message: err.message });
+    return res.status(err.statusCode).send({ message: err.message });
   }
   if (err instanceof mongoose.Error.ValidationError) {
     return res

@@ -1,5 +1,5 @@
 {
-  "name": "movies-explorer-api",
+  "name": "cine-beat-api",
   "version": "1.0.0",
   "description": "Back-end for the project Movie Explorer — web-application for managing personal movie collection",
   "main": "index.js",
@@ -7,7 +7,8 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "npx eslint ."
+    "lint": "npx eslint .",
+    "swagger": "node ./swagger.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
     "eslint": "^8.35.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "swagger-autogen": "^2.23.7"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
