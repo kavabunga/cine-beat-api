@@ -2,7 +2,7 @@
 
 ![Static Badge](https://img.shields.io/badge/status-finished-success) ![Static Badge](https://img.shields.io/badge/JavaScript-gray?logo=JavaScript) ![Static Badge](https://img.shields.io/badge/Node.js-gray?logo=nodedotjs) ![Static Badge](https://img.shields.io/badge/Express.js-gray?logo=Express) ![Static Badge](https://img.shields.io/badge/MongoDB-gray?logo=MongoDB) ![Static Badge](https://img.shields.io/badge/Mongoose-gray?logo=Mongoose) ![Static Badge](https://img.shields.io/badge/Swagger-gray?logo=Swagger)
 
-Server-side for the project **Cine Beat** — web-application for keeping a personal movie collection. The project made at "WEB-development" course at [**Yandex.Practicum**](https://practicum.yandex.ru/ 'Yandex.Practicum'). Demo is available here: [cinebeat.semenkatz.com](https://cinebeat.semenkatz.com)
+Server-side for the project **Cine Beat** — web-application for keeping a personal movie collection of the Beat Film Festival catalogue. The project made at "WEB-development" course at [**Yandex.Practicum**](https://practicum.yandex.ru/ 'Yandex.Practicum'). Demo is available here: [cinebeat.semenkatz.com](https://cinebeat.semenkatz.com)
 
 ## Features
 
